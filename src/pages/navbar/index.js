@@ -2,12 +2,18 @@ import React, { useState } from 'react'
 import { MenuItems } from './components/MenuItems'
 import logo from '../../assets/logo/logo.svg'
 import './Navbar.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons'
 
 const Navbar = () => {
     const [isClicked, setIsClicked] = useState(false)
 
+    const onClickShowMenu = () => {
+        setIsClicked(!isClicked)
+    }
+
     return (
-        <div className='container'>
+        <nav className='NavbarItems'>
             <div className='wrapLogoContainer'>
                 <h1 className='logoTitle'>
                     LandingPage
@@ -17,7 +23,7 @@ const Navbar = () => {
             </div>
 
             <div className='wrapItemContainer'>
-                <ul>
+                <ul className={isClicked ? 'nav-menu active' : 'nav-menu'}>
                     {MenuItems.map((item, index) => {
                         return (
                             <li key={index}>
@@ -32,8 +38,12 @@ const Navbar = () => {
                 <button className='wrapButtonContainer'>
                     Sign In
                 </button>
+
+                <div onClick={onClickShowMenu} className='menu-icon'>
+                    <FontAwesomeIcon icon={isClicked ? faBars : faXmark} color='white' size='lg' />
+                </div>
             </div>
-        </div>
+        </nav>
     )
 }
 

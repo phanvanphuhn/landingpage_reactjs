@@ -1,25 +1,47 @@
-.container{
+.NavbarItems{
     height: 80px;
     padding: 16px;
     background-color: black;
     display: flex;
     justify-content: space-between;
-    align-items: center;
 }
 
 .wrapLogoContainer{
     display: flex;
+    align-items: center;
 }
 
 .logoTitle{
     color: white
 }
 
+.App-logo{
+    height: 60px;
+    width: 60px;
+}
+
 .wrapItemContainer{
     display: flex;
 }
 
-.wrapMenuItems{
+.nav-menu{
+    display: flex;
+    margin-right: 36px;
+    align-items: center;
+}
+
+.nav-links{
+    margin-right: 48px;
+    list-style-type: none;
+    text-decoration: none;
+    color: white;
+}
+
+.nav-links:hover{
+    background: #03a9f4;
+    border-radius: 8px;
+    padding: 8px;
+    transition: all 0.2s ease-out;
 }
 
 .wrapButtonContainer{
@@ -29,4 +51,64 @@
     color: white;
     font-size: 16px;
     font-weight: 400;
+}
+
+.menu-icon{
+    display: none;
+}
+
+@media screen and (max-width: 960px){
+    .menu-icon{
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        font-size: 1.8rem;
+        transform: translate(-100%, 60%);
+    }
+
+    .NavbarItems{
+        position: relative;
+    }
+
+    .nav-menu{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 80px;
+        left: -100%;
+        opacity: 1;
+        transition: all 0.5s ease;
+    }
+
+    .nav-menu.active {
+        background: rgb(12, 12, 12);
+        left: 0;
+        opacity: 1;
+        transition: all 0.5s ease;
+        z-index: 1;
+    }
+
+    .nav-links{
+        text-align: center;
+        padding: 2rem;
+        width: 100%;
+        display: table;
+        list-style-type: none;
+        text-decoration: none;
+    }
+
+    .nav-links:hover{
+        background:#03a9f4;
+        border-radius: 0;
+    }
+
+    .wrapLogoContainer{
+        align-items: center;
+    }    
+
+    .wrapButtonContainer{
+        display: none;
+    }
 }
