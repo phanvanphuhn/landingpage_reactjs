@@ -1,0 +1,32 @@
+.container{
+    height: 80px;
+    padding: 16px;
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.wrapLogoContainer{
+    display: flex;
+}
+
+.logoTitle{
+    color: white
+}
+
+.wrapItemContainer{
+    display: flex;
+}
+
+.wrapMenuItems{
+}
+
+.wrapButtonContainer{
+    width: 100px;
+    background-color: #03a9f4;
+    border-radius: 8px;
+    color: white;
+    font-size: 16px;
+    font-weight: 400;
+}
