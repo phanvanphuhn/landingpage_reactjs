@@ -1,0 +1,13 @@
+.leftChevron{
+    z-index: 1;
+    position: absolute;
+    top: 45%;
+    left: 16px
+}
+
+.rightChevron{
+    z-index: 1;
+    position: absolute;
+    top: 45%;
+    right: 16px
+}
