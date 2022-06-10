@@ -1,7 +1,7 @@
 .NavbarItems{
     height: 80px;
     padding: 16px;
-    background-color: black;
+    background-color:black;
     display: flex;
     justify-content: space-between;
 }
@@ -42,6 +42,12 @@
     border-radius: 8px;
     padding: 8px;
     transition: all 0.2s ease-out;
+}
+
+.nav-item{
+    list-style-type: none;
+    text-decoration: none;
+    color: white;
 }
 
 .wrapButtonContainer{
