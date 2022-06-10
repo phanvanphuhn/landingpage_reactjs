@@ -26,8 +26,8 @@ const Navbar = () => {
                 <ul className={isClicked ? 'nav-menu active' : 'nav-menu'}>
                     {MenuItems.map((item, index) => {
                         return (
-                            <li key={index}>
-                                <a className={item.className} href={item.url}>
+                            <li key={index} className={item.className}>
+                                <a href={item.url} className='nav-item'>
                                     {item.title}
                                 </a>
                             </li>
@@ -40,7 +40,7 @@ const Navbar = () => {
                 </button>
 
                 <div onClick={onClickShowMenu} className='menu-icon'>
-                    <FontAwesomeIcon icon={isClicked ? faBars : faXmark} color='white' size='lg' />
+                    <FontAwesomeIcon icon={isClicked ? faXmark : faBars} color='white' size='lg' />
                 </div>
             </div>
         </nav>
