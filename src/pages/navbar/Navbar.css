@@ -4,6 +4,7 @@
     background-color:black;
     display: flex;
     justify-content: space-between;
+    position: sticky
 }
 
 .wrapLogoContainer{
