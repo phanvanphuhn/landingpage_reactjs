@@ -9,6 +9,7 @@
 .wrapInputContainer{
     margin-bottom: 16px;
     display: flex;
+    flex-direction: row;
     align-items: center;
     position: relative
 }
@@ -24,9 +25,14 @@
     align-self: center;
 }
 
-.inputIcon{
+.inputSearch{
     position: absolute;
     left: 4px
+}
+
+.inputCalendar{
+    position: absolute;
+    right: 4px
 }
 
 .contentTitle{
@@ -37,4 +43,10 @@
 .contentDescription{
     font-size: 14px;
     margin-bottom: 4px;
+}
+
+.wrapCalendarContainer{
+    margin-bottom: 24px;
+    display: flex;
+    justify-content: flex-end;
 }

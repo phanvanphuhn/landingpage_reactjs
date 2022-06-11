@@ -2,20 +2,31 @@ import React, { useState } from 'react';
 import { ContentItems } from '../../../../components/ContentItems';
 import './Content.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
+import { faMagnifyingGlass, faCalendar } from '@fortawesome/free-solid-svg-icons'
+import Calendar from 'react-calendar';
+import 'react-calendar/dist/Calendar.css';
 
 const Content = () => {
     const [value, setValue] = useState('')
+    const [dateCalendar, setDateCalendar] = useState(new Date());
+    const [isShowCalendar, setIsShowCalendar] = useState(false)
 
     const onChangeText = (e) => {
         var lowerCase = e.target.value?.toLowerCase();
         setValue(lowerCase)
     }
 
+    const onShowCalendar = () => {
+        setIsShowCalendar(!isShowCalendar)
+    }
+
     const filterData = ContentItems.filter((info) => {
-        if (value === '') {
+        if (value === '' && isShowCalendar === false) {
             return info
-        } else {
+        } else if (isShowCalendar === true) {
+            return info.time >= (dateCalendar.getTime() / 1000)
+        }
+        else {
             return info.description.toLowerCase().includes(value) || info.title.toLowerCase().includes(value)
         }
     })
@@ -23,13 +34,21 @@ const Content = () => {
     return (
         <div className="container">
             <form className='wrapInputContainer'>
-                <div className='inputIcon'>
+                <div className='inputSearch'>
                     <FontAwesomeIcon icon={faMagnifyingGlass} size='sm' />
                 </div>
 
                 <input type="text" name="name" value={value} onChange={onChangeText} placeholder='Search' className='inputContainer' >
                 </input>
+
+                <div className='inputCalendar' onClick={onShowCalendar}>
+                    <FontAwesomeIcon icon={faCalendar} size='sm' />
+                </div>
             </form>
+
+            <div className='wrapCalendarContainer' style={{ display: isShowCalendar ? 'flex' : 'none' }}>
+                <Calendar onChange={setDateCalendar} value={dateCalendar} />
+            </div>
 
             {filterData.map(info => {
                 const date = new Date(info.time * 1000)
